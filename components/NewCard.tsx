@@ -1,28 +1,37 @@
-import React from 'react'
-import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from './ui/card'
-import { Button } from './ui/button'
-
+import React from "react";
+import {
+  Card,
+  CardContent,
+  CardDescription,
+  CardFooter,
+  CardHeader,
+  CardTitle,
+} from "./ui/card";
+import { Button } from "./ui/button";
+import Image from "next/image";
+import image from '@/public/n1.jpg';
 interface NewCardProps {
-    isActive: boolean
+  isActive: boolean;
 }
-const NewCard:React.FC<NewCardProps> = ({isActive}) => {
+const NewCard: React.FC<NewCardProps> = ({ isActive }) => {
   return (
     <div>
-      <Card className={isActive ? 'border border-red-600' : ''}>
+      <Card className={isActive ? "border border-primary" : ""}>
         <CardHeader>
+         <Image src={image} alt="new cover" layout="responsive" placeholder="blur" className="rounded"/> 
+        </CardHeader>
+        <CardContent>
           <CardTitle>Create project</CardTitle>
           <CardDescription>
             Deploy your new project in one-click.
           </CardDescription>
-          <Button variant="outline">Cancel</Button>
-        </CardHeader>
-        <CardContent>cardContent</CardContent>
+        </CardContent>
         <CardFooter className="flex justify-between">
-          <Button>Deploy</Button>
+          <Button>show more</Button>
         </CardFooter>
       </Card>
-</div>
-  )
-}
+    </div>
+  );
+};
 
-export default NewCard
+export default NewCard;

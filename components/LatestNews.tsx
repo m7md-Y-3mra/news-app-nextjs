@@ -15,8 +15,14 @@ const LatestNews = () => {
     })
   return (
     <div>
-      <h2>Latest News Articles</h2>
-      <div>{[0, 1, 2].map(item => <NewCard isActive={item === activeIndex} key={item}/>)}</div>
+      <div className="container mx-auto py-16 text-center">
+        <h2 className="mb-7">Latest News Articles</h2>
+        <div className="flex justify-center gap-5">
+          {[0, 1, 2].map((item) => (
+            <NewCard isActive={item === activeIndex} key={item} />
+          ))}
+        </div>
+      </div>
     </div>
   );
 };
