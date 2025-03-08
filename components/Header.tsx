@@ -14,7 +14,7 @@ const links = [
     icon: <CirclePlus />
   }, 
   {
-    href: '/categories',
+    href: '/categories/us/sports',
     label: 'Categories',
     icon: <Boxes />
   },
