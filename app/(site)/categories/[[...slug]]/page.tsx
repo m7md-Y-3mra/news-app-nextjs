@@ -2,6 +2,17 @@ import NewCard from "@/components/NewCard";
 import { NewsResponse } from "@/types";
 import { notFound } from "next/navigation";
 import React from "react";
+import { COUNTRIES, CATEGORIES } from "@/constant";
+
+// static generation
+export function generateStaticParams() {
+  return COUNTRIES.flatMap(country =>
+    CATEGORIES.map(category => ({ slug: [country, category] }))
+  );
+}
+
+// ISR configuration: revalidate every 1 hour (3600 seconds)
+export const revalidate = 3600;
 
 const page = async ({ params }: { params: Promise<{ slug?: string[] }> }) => {
   const { slug } = await params;
